@@ -51,12 +51,13 @@ An interactive 3D personal portfolio built with React Three Fiber, Three.js, and
 
 ---
 
-## 🧑‍💻 Author
+## Author
 
 **Brandon Pratama**  
 - [Portfolio Website](https://brandonpratama.com)  
 - [GitHub](https://github.com/Unnamedhat88)  
 - Passionate about blending aesthetics, interactivity, and code through creative web technologies.
+
 
 
 
