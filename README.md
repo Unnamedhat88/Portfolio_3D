@@ -7,7 +7,7 @@ An interactive **3D personal portfolio** built with React Three Fiber, Three.js,
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - **Frontend:** React.js, Three.js, React Three Fiber, Tailwind CSS  
 - **Graphics & Shaders:** GLSL, Drei, Framer Motion  
@@ -42,7 +42,14 @@ An interactive **3D personal portfolio** built with React Three Fiber, Three.js,
 | Realistic lighting and smooth 3D visuals | Implemented custom GLSL shaders with modular uniforms and reactive parameters |
 | Maintaining design consistency across 3D scenes | Centralized scene management and shared lighting configuration |
 
+---
 
+## Preview
+
+![Portfolio Preview](./preview.jpeg)  
+
+
+---
 
 ## 🧑‍💻 Author
 
@@ -50,5 +57,6 @@ An interactive **3D personal portfolio** built with React Three Fiber, Three.js,
 - [Portfolio Website](https://brandonpratama.com)  
 - [GitHub](https://github.com/Unnamedhat88)  
 - Passionate about blending aesthetics, interactivity, and code through creative web technologies.
+
 
 
