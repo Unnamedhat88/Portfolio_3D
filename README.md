@@ -2,6 +2,9 @@
 
 An interactive 3D personal portfolio built with React Three Fiber, Three.js, and GLSL shaders — hosted on AWS (S3 + CloudFront) and designed to showcase my projects, certificates, and experiences through immersive visuals and smooth interactions.
 
+![Portfolio Preview](./preview.jpeg)  
+
+
 ## Live Demo
 [Visit the portfolio](https://brandonpratama.com)
 
@@ -44,19 +47,13 @@ An interactive 3D personal portfolio built with React Three Fiber, Three.js, and
 
 ---
 
-## Preview
-
-![Portfolio Preview](./preview.jpeg)  
-
-
----
-
 ## Author
 
 **Brandon Pratama**  
 - [Portfolio Website](https://brandonpratama.com)  
 - [GitHub](https://github.com/Unnamedhat88)  
 - Passionate about blending aesthetics, interactivity, and code through creative web technologies.
+
 
 
 
