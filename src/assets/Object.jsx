@@ -5,6 +5,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as THREE from "three";
 import Vertexobject from "../Shaders/Object.vert";
 import Fragmentobject from "../Shaders/Object.frag"
+import VertexTutorial from "../Shaders/Tutorial.vert";
+import FragmentTutorial from "../Shaders/Tutorial.frag";
 import { shaderMaterial,useGLTF,Html } from "@react-three/drei";
 import { uniform } from "three/src/nodes/TSL.js";
 import {useThree} from "@react-three/fiber"
@@ -103,6 +105,7 @@ export default function Object({positionofxz,setpositionofxz,cameraBusy,focusObj
         if(!child.isMesh){
           return
         }
+        console.log(child.name)
         
 
         // else if(child.isMesh && child.name.toLocaleLowerCase().includes("screen")&&!looped.current){
@@ -204,6 +207,28 @@ export default function Object({positionofxz,setpositionofxz,cameraBusy,focusObj
           
           
         }
+
+        if (child.name.toLowerCase().includes("tutorial")) {
+          const tutorialUniforms = {
+            MAX_OPACITY: { value: 0.3 },
+            uFogColor: { value: new THREE.Color("#EBA2CC") },
+            uFogDensity: { value: 0.06 },
+            vViewPos: { value: new THREE.Vector3() },
+            uTime: { value: 0.0 },
+          };
+
+          const tutorialShaderMaterial = new THREE.ShaderMaterial({
+            vertexShader: VertexTutorial,
+            fragmentShader: FragmentTutorial,
+            uniforms: tutorialUniforms,
+            transparent: true,
+          });
+
+          child.material = tutorialShaderMaterial;
+
+          // Make the tutorial object not absorb clicks
+          child.raycast = () => null;
+        }
       })
       looped.current=true;
   },[gltf])
@@ -212,6 +237,13 @@ export default function Object({positionofxz,setpositionofxz,cameraBusy,focusObj
     useFrame((state, delta, xrFrame)=>{
       uniforms.current.uTime.value+=delta*0.5
       uniforms.current.uCamPos.value.set(positionofxz-4,3.5,positionofxz-4)
+
+      // Update uTime for tutorial objects
+      gltf.scene.traverse((child) => {
+        if (child.name.toLowerCase().includes("tutorial") && child.material.uniforms) {
+          child.material.uniforms.uTime.value += delta;
+        }
+      });
     })
 
     return(

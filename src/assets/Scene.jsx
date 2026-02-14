@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
-import {useTexture} from "@react-three/drei";
+import {OrbitControls, useTexture} from "@react-three/drei";
 import { DirectionalLight,DirectionalLightHelper } from "three";
 import { useHelper, Stats } from "@react-three/drei";
 import Vertexorb from "../Shaders/Orb.vert";
@@ -103,6 +103,8 @@ export default function Scene({positionofxz,setpositionofxz,cameraBusy,focusObje
     <Object positionofxz={positionofxz} setpositionofxz={setpositionofxz} cameraBusy={cameraBusy}focusObject={focusObject} setFocusObject={setFocusObject} activeDiv={activeDiv} zoomedin={zoomedin} setZoomedin={setZoomedin} tutorial={tutorial} setTutorial={setTutorial}></Object>
 
     <VolumetricLights positionofxz={positionofxz}></VolumetricLights>
+ 
+    
 
 
     </>

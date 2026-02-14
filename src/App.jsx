@@ -170,12 +170,7 @@ function App() {
     {!zoomedin&&<Toolbar viewportHeight={viewportHeight} setActiveDiv={setActiveDiv} scrollprogress={scrollprogress} activeDiv={activeDiv} zoomedin={zoomedin} setZoomedin={setZoomedin}></Toolbar>}
     {warning&&<Warning setWarning={setWarning}></Warning>}
     
-    <div className="grid absolute z-10 inset-0">
-      <div style={{opacity:(activeDiv==0&&!tutorial[0])?1:0, marginTop:"120px", textAlign:"right", marginRight:"12vw", fontSize:"40px"}} className="transition-opacity duration-100 font-semibold pointer-events-none">Press the TV to view my profile<br/> Use the sidebar or scroll <br/>to explore other sections</div>
-      <div style={{opacity:(activeDiv==1&&!tutorial[1])?1:0, marginTop:"80px", textAlign:"left", marginLeft:"15vw", fontSize:"40px"}} className="transition-opacity duration-100 font-semibold pointer-events-none">Press the vending machine<br/> to see my projects</div>
-      <div style={{opacity:(activeDiv==2&&!tutorial[2])?1:0, marginTop:"-150px", textAlign:"right", marginRight:"20vw", fontSize:"40px"}} className="transition-opacity duration-100 font-semibold pointer-events-none">Press the laptop to see my<br/> certificates</div>
-     <div style={{opacity:(activeDiv==3&&!tutorial[3])?1:0, marginTop:"-100px", textAlign:"left", marginLeft:"15vw", fontSize:"40px"}} className="transition-opacity duration-100 font-semibold pointer-events-none">Press the phone to<br/> contact me</div>
-    </div>
+    
    
     <Canvas className="" dpr={[1,2]} style={{height:"100vh", position:"fixed", background:"#e187c0", touchAction:"pan-y"}}
     shadows>
