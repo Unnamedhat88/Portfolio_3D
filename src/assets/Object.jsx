@@ -46,206 +46,144 @@ const animateCamera=(camera,{ pos, target},cameraBusy,zoomedin)=>{
   })
 
 }
-export default function Object({positionofxz,setpositionofxz,cameraBusy,focusObject, setFocusObject,activeDiv, zoomedin, setZoomedin,tutorial, setTutorial}){
-    const {camera}=useThree()
-    const looped= useRef(false)
+export default function Object({ positionofxz, setpositionofxz, cameraBusy, focusObject, setFocusObject, activeDiv, zoomedin, setZoomedin, tutorial, setTutorial }) {
+    const { camera } = useThree()
+    const looped = useRef(false)
     const gltf = useLoader(GLTFLoader, 'images/models/environment.glb')
     const { nodes, materials } = useGLTF('images/models/environment.glb')
+    // Caching references to avoid expensive searching in useFrame
+    const tutorialMeshes = useRef({ tv: null, vending: null, laptop: [], phone: null, hand:null });
 
     const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
-    
-    useEffect(()=>{
-      if(gltf && gltf.scene) setTutorial(prev=>[0,0,0,0])
-    },[gltf])
 
-    const tempArray= new THREE.Vector3();
+    useEffect(() => {
+        if (gltf && gltf.scene) setTutorial(prev => [0, 0, 0, 0])
+    }, [gltf])
+
+    const tempArray = new THREE.Vector3();
     camera.getWorldDirection(tempArray);
     tempArray.add(camera.position)
-    const originalLookAt=useRef(tempArray.clone())
-    const originalCameraPosition=useRef(camera.position.clone())
+    const originalLookAt = useRef(tempArray.clone())
+    const originalCameraPosition = useRef(camera.position.clone())
 
-    const size=new THREE.Vector3()
-    nodes.tvscreen001.geometry.computeBoundingBox()
-    nodes.tvscreen001.geometry.boundingBox.getSize(size)
-    console.log(size)
+    const uniforms = useRef({
+        uTime: { value: 0 },
+        uCausticSpeed: { value: 1.0 },
+        uCausticColor: { value: new THREE.Color("#ffffff") },
+        uCausticScale: { value: 27.4 },
+        uCausticOffset: { value: 0.66 },
+        uCausticThickness: { value: 0.5 },
+        uCausticIntensity: { value: 0.28 },
+        uFogColor: { value: new THREE.Color("#EBA2CC") },
+        uFogDensity: { value: 0.06 },
+        uCamPos: { value: new THREE.Vector3(positionofxz - 4, 3.5, positionofxz - 4) }
+    });
 
-    const size2=new THREE.Vector3()
-    nodes.vendingscreen.geometry.computeBoundingBox()
-    nodes.vendingscreen.geometry.boundingBox.getSize(size2)
+    useEffect(() => {
+        if (!gltf || !gltf.scene) return;
 
-    const size3=new THREE.Vector3()
-    nodes.laptopscreen.geometry.computeBoundingBox()
-    nodes.laptopscreen.geometry.boundingBox.getSize(size3)
+        gltf.scene.traverse((child) => {
+            if (!child.isMesh) return;
 
-    const size4=new THREE.Vector3()
-    nodes.phonescreen.geometry.computeBoundingBox()
-    nodes.phonescreen.geometry.boundingBox.getSize(size4)
-    
+            // Logic for regular object clicks
+            child.userData.onClick = (currActiveDiv) => {
+                if (child.parent.name.toLowerCase() == "tvbody001" || child.name.toLowerCase() == "tvscreen001") {
+                    if (currActiveDiv != 0) return;
+                    cameraBusy.current = true;
+                    setZoomedin(true)
+                    animateCamera(camera, { pos: { x: (13.182) / 2, y: 3.388 / 2, z: (12.800) / 2 }, target: { x: (-3.879 + 12.1043) / 2, y: 3.388 / 2, z: (15.40533 - 4.128) / 2 } }, positionofxz)
+                    setTutorial(prev => [1, prev[1], prev[2], prev[3]]);
+                }
+                else if (child.parent.name.toLowerCase() == "vendingbody" || child.name.toLowerCase() == "vendingscreen") {
+                    if (currActiveDiv != 1) return;
+                    cameraBusy.current = true;
+                    setZoomedin(true)
+                    animateCamera(camera, { pos: { x: -16.676 / 2, y: 10.641 / 2, z: -19.908 / 2 }, target: { x: -21.514 / 2, y: 10.641 / 2, z: -25.978 / 2 } }, positionofxz)
+                    setTutorial(prev => [prev[0], 1, prev[2], prev[3]]);
+                }
+                else if (child.parent.name.toLowerCase() == "laptopbody" || child.name.toLowerCase() == "laptopscreen") {
+                    if (currActiveDiv != 2) return;
+                    cameraBusy.current = true;
+                    setZoomedin(true)
+                    animateCamera(camera, { pos: { x: -57.656 / 2, y: 9.940 / 2, z: -54.5 / 2 }, target: { x: (-68.707 + 5.597) / 2, y: 9.240 / 2, z: (-50.891 - 5.706) / 2 } }, positionofxz)
+                    setTutorial(prev => [prev[0], prev[1], 1, prev[3]]);
+                }
+                else if (child.parent.name.toLowerCase() == "phonebody" || child.name.toLowerCase() == "phonescreen") {
+                    if (currActiveDiv != 3) return;
+                    cameraBusy.current = true;
+                    setZoomedin(true)
+                    animateCamera(camera, { pos: { x: -83.1390 / 2, y: 4.025 / 2, z: -84.188 / 2 }, target: { x: -84.834 / 2, y: 3.85 / 2, z: -86.583 / 2 } }, positionofxz)
+                    setTutorial(prev => [prev[0], prev[1], prev[2], 1]);
+                }
+                camera.updateMatrixWorld();
+            }
 
-        const uniforms = useRef({
-          uTime:{value:0},
-          uCausticSpeed:{value:1.0},
-          uCausticColor:{value: new THREE.Color("#ffffff")},
-          uCausticScale:{value:27.4},
-          uCausticOffset:{value:0.66},
-          uCausticThickness:{value:0.5},
-          uCausticIntensity:{value: 0.28},
-          uFogColor: { value: new THREE.Color("#EBA2CC") },
-          uFogDensity: { value: 0.06 },         
-          uCamPos:{ value: new THREE.Vector3(positionofxz-4,3.5,positionofxz-4) }             
+            // Assign standard shader to non-tutorial objects
+            if (child.material && child.material.color && !child.name.toLowerCase().includes("tutorial")) {
+                const cloneduniforms = { ...uniforms.current, uColor: { value: child.material.color.clone() } };
+                child.material = new THREE.ShaderMaterial({
+                    vertexShader: Vertexobject,
+                    fragmentShader: Fragmentobject,
+                    uniforms: cloneduniforms,
+                })
+            }
 
+            // Logic for Tutorial objects
+            if (child.name.toLowerCase().includes("tutorial")) {
+                child.raycast = () => null; // Let clicks pass through
+                child.material = new THREE.ShaderMaterial({
+                    vertexShader: VertexTutorial,
+                    fragmentShader: FragmentTutorial,
+                    uniforms: {
+                        MAX_OPACITY: { value: 0.3 },
+                        uFogColor: { value: new THREE.Color("#EBA2CC") },
+                        uFogDensity: { value: 0.06 },
+                        uTime: { value: 0.0 },
+                    },
+                    transparent: true,
+                });
+
+                const name = child.name.toLowerCase();
+                if (name.includes("tv")) tutorialMeshes.current.tv = child;
+                if (name.includes("vending")) tutorialMeshes.current.vending = child;
+                if (name.includes("phone")) tutorialMeshes.current.phone = child;
+                if (name.includes("hand")) tutorialMeshes.current.hand = child;
+                if (name.includes("laptop")) {
+                  tutorialMeshes.current.laptop.push(child);
+              }
+            }
+        })
+        looped.current = true;
+    }, [gltf])
+
+
+    useFrame((state, delta) => {
+        uniforms.current.uTime.value += delta * 0.5;
+        uniforms.current.uCamPos.value.set(positionofxz - 4, 3.5, positionofxz - 4);
+
+        // Update tutorials directly from the ref cache
+        const { tv, vending, laptop, phone, hand } = tutorialMeshes.current;
+
+        if (tv) {
+            tv.visible = tutorial[0] === 0;
+            tv.material.uniforms.uTime.value += delta;
+            hand.visible = tutorial[0]===0;
+        }
+        if (vending) {
+            vending.visible = tutorial[1] === 0;
+            vending.material.uniforms.uTime.value += delta;
+        }
+        if (laptop.length > 0) {
+        laptop.forEach((mesh) => {
+            mesh.visible = tutorial[2] === 0;
+            mesh.material.uniforms.uTime.value += delta;
         });
-      
-    useEffect(()=>{
-      if(!gltf || !gltf.scene) return;
-     
-      gltf.scene.traverse((child)=>{
-     
-        
-        if(!child.isMesh){
-          return
         }
-        console.log(child.name)
-        
-
-        // else if(child.isMesh && child.name.toLocaleLowerCase().includes("screen")&&!looped.current){
-        //   child.visible=false;
-        //   return
-        // }
-     
-        if(child.isMesh){
-          child.userData.onClick=(currActiveDiv)=>{
-          
-            if(child.parent.name.toLocaleLowerCase()=="tvbody001"||child.name.toLocaleLowerCase()=="tvscreen001"){
-              if(currActiveDiv!=0)return;
-              cameraBusy.current=true;
-              setZoomedin(true)
-              animateCamera(camera, {pos : {x:( 13.182)/2, y: 3.388/2, z: (12.800)/2},target:{x: (-3.879+12.1043)/2, y: 3.388/2, z: (15.40533-4.128)/2}}, positionofxz )
-              setTutorial(prev=>{
-                const newTutorial=[...prev]
-                newTutorial[0]=1;
-                return newTutorial
-              })
-            }
-            else if(child.parent.name.toLocaleLowerCase()=="vendingbody"||child.name.toLocaleLowerCase()=="vendingscreen"){
-              if(currActiveDiv!=1)return;
-              cameraBusy.current=true;
-              setZoomedin(true)
-              animateCamera(camera, {pos : {x:-16.676/2, y:10.641/2, z:-19.908/2},target:{x: -21.514/2,y:10.641/2,z:-25.978/2}}, positionofxz )
-              setTutorial(prev=>{
-                const newTutorial=[...prev]
-                newTutorial[1]=1;
-                return newTutorial
-              })
-            }
-            else if(child.parent.name.toLocaleLowerCase()=="laptopbody"||child.name.toLocaleLowerCase()=="laptopscreen"){
-              if(currActiveDiv!=2)return;
-              cameraBusy.current=true;
-              setZoomedin(true)
-              animateCamera(camera, {pos : {x:-57.656/2, y:9.940/2,  z:-54.5/2},target:{x:(-68.707+5.597)/2,y:9.240/2,z:(-50.891-5.706)/2}}, positionofxz )
-              setTutorial(prev=>{
-                const newTutorial=[...prev]
-                newTutorial[2]=1;
-                return newTutorial
-              })
-            }
-            else if(child.parent.name.toLocaleLowerCase()=="phonebody"||child.name.toLocaleLowerCase()=="phonescreen"){
-              if(currActiveDiv!=3)return;
-              cameraBusy.current=true;
-              setZoomedin(true)
-              animateCamera(camera, {pos : {x:-83.1390/2, y: 4.025/2, z:-84.188/2},target:{x:-84.834/2, y:3.85/2, z:-86.583/2}}, positionofxz )
-              setTutorial(prev=>{
-                const newTutorial=[...prev]
-                newTutorial[3]=1;
-                return newTutorial
-              })
-            }
-
-            
-
-            //for vending
-            // camera.position.set(-16.676/2,  10.641/2,  -19.908/2)
-            // camera.lookAt(-21.514/2,10.641/2,-25.978/2)
-            
-            //for laptop
-            // camera.position.set(-63.8099/2,  9.440/2,  -48.985/2)
-            // camera.lookAt(-68.707/2,9.240/2,-50.891/2)
-
-            //for phone
-            // camera.position.set(-83.1390/2,  4.025/2, -84.188/2)
-            // camera.lookAt(-84.834/2,  3.85/2, -86.583/2)
-
-            camera.updateMatrixWorld();
-            
-            //TVBody: -4.323,3.273,15.388
-            //VENDINGBODY: -21.514, y: 10.641, z: -25.978
-            //LAPTOPBODY: -68.707,  9.240,  -50.891
-            //PHONEBODY:-84.834,  4.025,  -86.583
-            //TVCAM :  -4.323,  3.273,  15.388
-            //VENDINGCAM:-21.514, 10.641, -25.978
-            //LAPTOPCAM: -68.707,  9.240,-50.891
-            //PHONECAM: -84.834,  4.025, -86.583
-            
-          }
-          
+        if (phone) {
+            phone.visible = tutorial[3] === 0;
+            phone.material.uniforms.uTime.value += delta;
         }
-        
-        
-        if(child.isMesh && child.material && child.material.color && child.parent){
-          const cloneduniforms ={
-            ...uniforms.current, uColor:{value: child.material.color.clone()}
-          };
-          
-          const clonedshaderMaterial= new THREE.ShaderMaterial({
-            vertexShader: Vertexobject,
-            fragmentShader: Fragmentobject,
-            uniforms:cloneduniforms,
-            // side: THREE.DoubleSide
-          })
-        
-          child.material=clonedshaderMaterial
-          
-          
-        }
-
-        if (child.name.toLowerCase().includes("tutorial")) {
-          const tutorialUniforms = {
-            MAX_OPACITY: { value: 0.3 },
-            uFogColor: { value: new THREE.Color("#EBA2CC") },
-            uFogDensity: { value: 0.06 },
-            vViewPos: { value: new THREE.Vector3() },
-            uTime: { value: 0.0 },
-          };
-
-          const tutorialShaderMaterial = new THREE.ShaderMaterial({
-            vertexShader: VertexTutorial,
-            fragmentShader: FragmentTutorial,
-            uniforms: tutorialUniforms,
-            transparent: true,
-          });
-
-          child.material = tutorialShaderMaterial;
-
-          // Make the tutorial object not absorb clicks
-          child.raycast = () => null;
-        }
-      })
-      looped.current=true;
-  },[gltf])
-
-   
-    useFrame((state, delta, xrFrame)=>{
-      uniforms.current.uTime.value+=delta*0.5
-      uniforms.current.uCamPos.value.set(positionofxz-4,3.5,positionofxz-4)
-
-      // Update uTime for tutorial objects
-      gltf.scene.traverse((child) => {
-        if (child.name.toLowerCase().includes("tutorial") && child.material.uniforms) {
-          child.material.uniforms.uTime.value += delta;
-        }
-      });
     })
-
     return(
     <>
     <primitive scale={0.5} object={gltf.scene} onClick={(e)=>{

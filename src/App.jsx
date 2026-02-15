@@ -20,9 +20,7 @@ function CameraAdjust({scrollProgress,setpositionofxz, cameraBusy, zoomedin,setZ
     window.scrollTo(0,0)
   },[])
   const isMobile= /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
-  if(isMobile){
-    camera.fov=100;
-  }
+  
   camera.updateProjectionMatrix();
   
 
