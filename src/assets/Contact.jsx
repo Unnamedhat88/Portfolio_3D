@@ -40,12 +40,15 @@ export function Contact({animateCamera,cameraBusy,originalCameraPosition,origina
                              </div>   
                         ))}
                         <div className="rounded-xl cursor-pointer bg-red-100 flex items-center justify-center py-4 border-4 border-black bg-blue-100" style={{height:"90px",width:"320px"}}
-                        onClick={()=>{
-                            const link=document.createElement("a");
-                            link.href="/Brandon_Kwee_Resume.pdf";
-                            link.download="Brandon_Kwee_Resume.pdf";
-                            link.click()
-                        }}>
+                        onClick={() => {
+                            const link = document.createElement("a");
+                            link.href = "https://dl.brandonpratama.com/Brandon_Kwee_Resume.pdf";
+                            link.setAttribute("download", "Brandon_Kwee_Resume.pdf");
+                            link.target = "_blank";
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                            }}>
                              
                                 <p className="text-2xl">Download Resume</p>
                              </div>   
