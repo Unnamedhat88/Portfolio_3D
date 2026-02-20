@@ -21,7 +21,7 @@ export function Contact({ animateCamera, cameraBusy, originalCameraPosition, ori
 
         <div className="absolute h-full w-full rounded-xl " style={{ opacity: "0.6" }}></div>
         <div className="relative z-20  my-4  flex-col justify-center items-center">
-            <div className="text-5xl mx-8" style={{ fontWeight: "600", letterSpacing: "-1px" }}>{Text[lang].Contact}</div>
+            <div className="text-5xl mx-8" style={{ fontWeight: "600", letterSpacing: "-1px" }}>{text.contact}</div>
             <div className="relative items-center gap-4 mt-10 flex flex-col justify-center items-center">
                 {links.map((item, index) => (
                     <div className="rounded-xl cursor-pointer bg-red-100 flex items-center justify-center py-4 border-4 border-black" key={index} style={{ height: "90px", width: "320px", backgroundColor: links[index].color }}

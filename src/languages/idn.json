@@ -1,50 +1,50 @@
 {
-    "greeting": "Selamat datang, Nama saya Brandon Pratama Kwee",
-    "summary": "Saya murid dari universitas Ritsumeikan, saya tertarik mendesain front end website sehingga saya memplejari cara menggunakan model 3 dimensi dan shader sendiri untuk meningkatkan fleksibilitas website saya. Saya juga tertarik mengenai AI, terutama Model Ai Bahasa (LLM). Menurut saya komunikasi itu sangat penting sehingga saya mempelajari berberapa program untuk menyampaikan ide saya ke orang lain. Saya bisa berbicara bahasa Indonesia, Jepang, dan Inggris",
-    "techStackLabel": "Tech Stack : ",
-    "otherSkillsLabel": "Other Skills : ",
-    "techStack": "Python, Java, Html, Css, Javascript, React, Three.js, React Three Fiber, Tailwind, GLSL, Typescript",
-    "otherSkills": "Figma, Blender",
-    "projects": "Proyek",
-    "projectDesc": "Tekan tombol untuk melihat daftar proyek",
-    "certificate": "Sertifikat",
-    "certificateDesc": "Tekan tombol untuk melihat sertifikat saya",
-    "contact": "Kontak",
-    "contactMe": "Hubungi Saya",
-    "back": "Kembali",
-    "goBack": "Kembali",
-    "workInProgress": "Sedang Dikerjakan",
-    "navigateToWebsite": "Buka website",
-    "currentlyUnavailable": "Saat ini tidak tersedia",
-    "downloadResume": "Unduh Resume",
-    "warningText": "Situs ini bekerja paling baik di desktop / laptop. Beberapa interaksi mungkin tidak ditampilkan dengan benar di perangkat seluler.",
-    "warningButton": "Saya mengerti dan ingin melanjutkan",
+    "greeting": "TBA",
+    "summary": "TBA",
+    "techStackLabel": "TBA",
+    "otherSkillsLabel": "TBA",
+    "techStack": "TBA",
+    "otherSkills": "TBA",
+    "projects": "TBA",
+    "projectDesc": "TBA",
+    "certificate": "TBA",
+    "certificateDesc": "TBA",
+    "contact": "TBA",
+    "contactMe": "TBA",
+    "back": "TBA",
+    "goBack": "TBA",
+    "workInProgress": "TBA",
+    "navigateToWebsite": "TBA",
+    "currentlyUnavailable": "TBA",
+    "downloadResume": "TBA",
+    "warningText": "TBA",
+    "warningButton": "TBA",
     "projectsData": [
         {
-            "title": "Sistem Pemetaan Serbuk Sari",
-            "desc": "Prototipe aplikasi web yang menunjukkan peta penyebaran serbuk sari\n- Membangun REST API di Flask dan mengintegrasikan model ML yang sudah dilatih untuk prediksi waktu nyata\n- Diuji secara lokal dengan 50 permintaan simulasi, mencapai ~0,2 detik per permintaan dan tingkat keberhasilan 100% \n\nTeknologi yang digunakan: Keras, Python, React, Flask, SQLAlchemy, Tailwind CSS"
+            "title": "TBA",
+            "desc": "TBA"
         },
         {
-            "title": "Website Portofolio 3D",
-            "desc": "- Merekayasa lingkungan bawah air interaktif dengan React Three Fiber dan shader GLSL khusus untuk efek bawah air\n- Disebarluaskan secara global di AWS (S3+CloudFront+Route53), memungkinkan akses cepat dari wilayah mana pun, ~200ms TTFB di Asia/Amerika Utara (diukur melalui catchpoint) \n- Terinspirasi oleh toko interaktif 3D inovatif Jesse Zhou [https://www.jesse-zhou.com/] \n\nTeknologi yang digunakan: React, R3F, GLSL, Blender, Tailwind CSS, AWS"
+            "title": "TBA",
+            "desc": "TBA"
         },
         {
-            "title": "Simulasi Gerbang Logika",
-            "desc": "- Membangun simulator gerbang logika dengan typescript\n\nTeknologi yang digunakan: React, Tailwind CSS, Typescript"
+            "title": "TBA",
+            "desc": "TBA"
         },
         {
-            "title": "SEGERA HADIR",
-            "desc": "segera hadir"
+            "title": "TBA",
+            "desc": "TBA"
         }
     ],
     "certsData": [
         {
-            "title": "AWS Certified Cloud Practitioner",
-            "desc": "Mendapatkan pengetahuan dasar tentang konsep cloud AWS, termasuk layanan inti seperti EC2, S3, RDS, dan Lambda.\nJuga mempelajari praktik terbaik arsitektur cloud, keamanan, manajemen biaya, serta strategi penerapan dan pemantauan dasar."
+            "title": "TBA",
+            "desc": "TBA"
         },
         {
-            "title": "AWS Certified AI Practitioner",
-            "desc": "Mempelajari pengetahuan dasar tentang penggunaan layanan AI Amazon seperti Rekognition, Polly, Amazon Q.\nSaya juga mempelajari beberapa pengetahuan AI dasar seperti bias dan varians, serta retrieval-augmented learning (RAG)."
+            "title": "TBA",
+            "desc": "TBA"
         }
     ]
 }
