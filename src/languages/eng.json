@@ -1,0 +1,50 @@
+{
+    "greeting": "Hi, I am Brandon Pratama Kwee",
+    "summary": "I am a student at Ritsumeikan university, my passion lies within front end web design therefore I learned to be able to incorporate 3D model as well as my own shader to elevate the customizability of my websites. I also have a passion in AI, more specifically Large Language Models or LLM. I also believe that communication is essential so I have learned several tools to illustrate my ideas to others. I also can speak in English, Japanese, and Indonesia",
+    "techStackLabel": "Tech Stack : ",
+    "otherSkillsLabel": "Other Skills : ",
+    "techStack": "Python, Java, Html, Css, Javascript, React, Three.js, React Three Fiber, Tailwind, GLSL, Typescript",
+    "otherSkills": "Figma, Blender",
+    "projects": "Projects",
+    "projectDesc": "Use the buttons to navigate through the projects",
+    "certificate": "Certificate",
+    "certificateDesc": "Press the buttons to see my certificates",
+    "contact": "Contact",
+    "contactMe": "Let's Connect !",
+    "back": "Back",
+    "goBack": "Go Back",
+    "workInProgress": "Work In Progress",
+    "navigateToWebsite": "Navigate to website",
+    "currentlyUnavailable": "Currently unavailable",
+    "downloadResume": "Download Resume",
+    "warningText": "This website works best on desktop / laptops. Some interaction may not be display correctly on mobile devices.",
+    "warningButton": "I understand and wish to proceed",
+    "projectsData": [
+        {
+            "title": "Pollen Mapping System",
+            "desc": "Web app prototype showing pollen spread map\n- Built REST APIs in Flask and integrated a pre-trained ML model for real-time predictions\n- Tested locally with 50 simulated requests, achieving ~0.2s per request and 100% succes rate \n\nTechnology used : Keras, Python, React, Flask, SQLAlchemy, Tailwind CSS"
+        },
+        {
+            "title": "3D Portfolio website",
+            "desc": "- Engineered an interactive underwater environment with React Three Fiber and custom GLSL shaders for underwater effects\n- Deployed globally on AWS (S3+CloudFront+Route53), enabling fast access from any region, ~200ms TTFB in Asia/North America (measured via catchpoint) \n- Inspired by Jesse Zhou's innovative 3D interactive shop [https://www.jesse-zhou.com/] \n\nTechnology used : React, R3F, GLSL, Blender, Tailwind CSS, AWS"
+        },
+        {
+            "title": "Logic Gate Simulation",
+            "desc": "- Built a Logic gate simulator with typescript\n\nTechnology used : React, Tailwind CSS, Typescript"
+        },
+        {
+            "title": "COMING SOON",
+            "desc": "coming soon"
+        }
+    ],
+    "certsData": [
+        {
+            "title": "AWS Certified Cloud Practitioner",
+            "desc": "Gained foundational knowledge of AWS cloud concepts, including core services such as EC2, S3, RDS, and Lambda.\nAlso learned about cloud architecture best practices, security, cost management and basic deployment and monitoring strategies."
+        },
+        {
+            "title": "AWS Certified AI Practitioner",
+            "desc": "Learned the foundational knowledge of using Amazon's AI services such as Rekognition, Polly, Amazon Q.\nI also learned some foundational AI knowledge such as bias and variance, and retrieval-augmented learning(RAG)."
+        }
+    ]
+}

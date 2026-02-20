@@ -1,0 +1,50 @@
+{
+    "greeting": "こんにちは、ブランドン・プラタマ・クウェです",
+    "summary": "立命館大学の学生です。フロントエンドのウェブデザインに情熱を持っており、3Dモデルや自作のシェーダーを組み込んでウェブサイトのカスタマイズ性を高める方法を学びました。また、AI、特に大規模言語モデル（LLM）にも関心があります。コミュニケーションが不可欠だと信じており、自分のアイデアを他人に説明するためのツールもいくつか学びました。英語、日本語、インドネシア語を話すことができます。",
+    "techStackLabel": "技術スタック : ",
+    "otherSkillsLabel": "その他のスキル : ",
+    "techStack": "Python, Java, Html, Css, Javascript, React, Three.js, React Three Fiber, Tailwind, GLSL, Typescript",
+    "otherSkills": "Figma, Blender",
+    "projects": "プロジェクト",
+    "projectDesc": "ボタンを使用してプロジェクトをナビゲートしてください",
+    "certificate": "証明書",
+    "certificateDesc": "ボタンを押して証明書を表示してください",
+    "contact": "連絡先",
+    "contactMe": "お問い合わせ",
+    "back": "戻る",
+    "goBack": "戻る",
+    "workInProgress": "準備中",
+    "navigateToWebsite": "ウェブサイトへ移動",
+    "currentlyUnavailable": "現在利用不可",
+    "downloadResume": "履歴書をダウンロード",
+    "warningText": "このウェブサイトはデスクトップ/ラップトップで最もよく機能します。モバイルデバイスでは一部のインタラクションが正しく表示されない場合があります。",
+    "warningButton": "理解して続行する",
+    "projectsData": [
+        {
+            "title": "花粉マッピングシステム",
+            "desc": "花粉飛散マップを表示するウェブアプリのプロトタイプ\n- FlaskでREST APIを構築し、リアルタイム予測のために事前学習済みのMLモデルを統合\n- ローカルで50のシミュレートされたリクエストでテストし、リクエストあたり約0.2秒、成功率100%を達成\n\n使用技術：Keras, Python, React, Flask, SQLAlchemy, Tailwind CSS"
+        },
+        {
+            "title": "3Dポートフォリオサイト",
+            "desc": "- React Three Fiberと水中エフェクト用のカスタムGLSLシェーダーを使用して、インタラクティブな水中環境を構築\n- AWS (S3+CloudFront+Route53) でグローバルにデプロイし、アジア/北米で約200msのTTFB（catchpointで測定）を実現し、どの地域からも高速アクセスを可能にしました \n- Jesse Zhou氏の革新的な3Dインタラクティブショップ [https://www.jesse-zhou.com/] からインスピレーションを得ました \n\n使用技術：React, R3F, GLSL, Blender, Tailwind CSS, AWS"
+        },
+        {
+            "title": "ロジックゲートシミュレーション",
+            "desc": "- Typescriptでロジックゲートシミュレーターを構築\n\n使用技術：React, Tailwind CSS, Typescript"
+        },
+        {
+            "title": "近日公開",
+            "desc": "まもなく公開"
+        }
+    ],
+    "certsData": [
+        {
+            "title": "AWS Certified Cloud Practitioner",
+            "desc": "EC2、S3、RDS、Lambdaなどのコアサービスを含む、AWSクラウドの概念に関する基礎知識を習得しました。\nまた、クラウドアーキテクチャのベストプラクティス、セキュリティ、コスト管理、基本的なデプロイおよび監視戦略についても学びました。"
+        },
+        {
+            "title": "AWS Certified AI Practitioner",
+            "desc": "Rekognition、Polly、Amazon QなどのAmazonのAIサービスを使用するための基礎知識を学びました。\nまた、バイアスとバリアンス、検索拡張生成（RAG）などの基本的なAIの知識も学びました。"
+        }
+    ]
+}
