@@ -1,8 +1,8 @@
 {
     "greeting": "Hi, I am Brandon Pratama Kwee",
     "summary": "I am a System Designer and Performance Engineer focused on low-level optimization and scalable architecture. I specialize in architecting high-performance 3D environments, full-stack systems, and NLP pipelines. Trilingual in English, Japanese, and Indonesian, I build efficient interfaces that bridge the gap between backend logic and immersive user experience.",
-    "techStackLabel": "Tech Stack : ",
-    "otherSkillsLabel": "Other Skills : ",
+    "techStackLabel": "TECH_STACK : ",
+    "otherSkillsLabel": "EXTERNAL_TOOLS : ",
     "techStack": "Python, Java, Html, Css, Javascript, React, Three.js, React Three Fiber, Tailwind, GLSL, Typescript",
     "otherSkills": "Figma, Blender",
     "projects": "Projects",

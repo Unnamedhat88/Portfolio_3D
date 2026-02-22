@@ -91,7 +91,18 @@ export default function Object({ positionofxz, setpositionofxz, cameraBusy, focu
           if (currActiveDiv != 0) return;
           cameraBusy.current = true;
           setZoomedin(true)
-          animateCamera(camera, { pos: { x: (13.182) / 2, y: 3.388 / 2, z: (12.800) / 2 }, target: { x: (-3.879 + 12.1043) / 2, y: 3.388 / 2, z: (15.40533 - 4.128) / 2 } }, positionofxz)
+          // animateCamera(camera, { pos: { x: (13.182) / 2, y: 3.388 / 2, z: (12.800) / 2 }, target: { x: (-3.879 + 12.1043) / 2, y: 3.388 / 2, z: (15.40533 - 4.128) / 2 } }, positionofxz)
+
+          const tvScreenPos = new THREE.Vector3(8.12 * 0.5, 3.40 * 0.5, 11.6 * 0.5); // group pos × scale
+          const tvNormal = new THREE.Vector3(Math.sin(1.27), 0, Math.cos(1.27)); // from rotation Y = 1.27
+          const camDistance = 4.5; // tune this one value for both devices
+
+          const camPos = tvScreenPos.clone().add(tvNormal.clone().multiplyScalar(camDistance));
+
+          animateCamera(camera, {
+            pos: { x: camPos.x, y: tvScreenPos.y, z: camPos.z },
+            target: { x: tvScreenPos.x, y: tvScreenPos.y, z: tvScreenPos.z }
+          }, cameraBusy, zoomedin);
           setTutorial(prev => [1, prev[1], prev[2], prev[3]]);
         }
         else if (child.parent.name.toLowerCase() == "vendingbody" || child.name.toLowerCase() == "vendingscreen") {
@@ -105,7 +116,7 @@ export default function Object({ positionofxz, setpositionofxz, cameraBusy, focu
           if (currActiveDiv != 2) return;
           cameraBusy.current = true;
           setZoomedin(true)
-          animateCamera(camera, { pos: { x: -57.656 / 2, y: 9.940 / 2, z: -54.5 / 2 }, target: { x: (-68.707 + 5.597) / 2, y: 9.240 / 2, z: (-50.891 - 5.706) / 2 } }, positionofxz)
+          animateCamera(camera, { pos: { x: -57.656 / 2, y: 9 / 2, z: -54.5 / 2 }, target: { x: (-68.707 + 5.597) / 2, y: 9.240 / 2, z: (-50.891 - 5.706) / 2 } }, positionofxz)
           setTutorial(prev => [prev[0], prev[1], 1, prev[3]]);
         }
         else if (child.parent.name.toLowerCase() == "phonebody" || child.name.toLowerCase() == "phonescreen") {
@@ -184,6 +195,13 @@ export default function Object({ positionofxz, setpositionofxz, cameraBusy, focu
       phone.material.uniforms.uTime.value += delta;
     }
   })
+  const { x, y, z, distFactor } = useControls("TV Position", {
+    x: { value: 8.12, min: -20, max: 20, step: 0.001 },
+    y: { value: 3.40, min: -20, max: 20, step: 0.001 },
+    z: { value: 11.6, min: -20, max: 20, step: 0.001 },
+    distFactor: { value: 3.9, min: 0.1, max: 20, step: 0.1 }
+  });
+
   return (
     <>
       <primitive scale={0.5} object={gltf.scene} onClick={(e) => {
@@ -199,9 +217,16 @@ export default function Object({ positionofxz, setpositionofxz, cameraBusy, focu
 
       }}>
         {/* for TV */}
-        <group position={[6.1243, 6.309, 10.135]} rotation={[0, 1.27, 0]} scale={!isMobile ? [1.01, 0.834, 0.959] : [1.01, 0.894, 0.959]} >
-          {(zoomedin && activeDiv == 0) && <Html distanceFactor={!isMobile ? 1.0 : 1.0} transform center position={isMobile ? [-0.98, -3.39, 2.29] : [-0.9, -3.5, 2.29]} scale={[3, 3.4, 3]} style={{ transition: "opacity 200ms", opacity: (zoomedin && activeDiv == 0) ? "1" : "0" }} >
-            <div style={{ width: "860px", height: "670px" }} className=" bg-red-100">
+        {/* scale mobile[1.01, 0.835, 0.959] */}
+        {/* group displacement mobile [6.1243, 6.4, 10.255] */}
+        <group position={[8.12, 3.5, isMobile ? 11.8 : 11.6]} rotation={[0, 1.27, 0]}>
+          {(zoomedin && activeDiv == 0) && <Html transform center style={{ transition: "opacity 200ms", opacity: (zoomedin && activeDiv == 0) ? "1" : "0" }} distanceFactor={isMobile ? 2.45 : 2.4} >
+            <div
+              style={{
+                width: "1100px",
+                height: "790px",
+                pointerEvents: "auto"
+              }} className="flex flex-col">
               <Summary animateCamera={animateCamera} cameraBusy={cameraBusy} originalCameraPosition={originalCameraPosition} originalLookAt={originalLookAt} camera={camera} positionofxz={positionofxz} setZoomedin={setZoomedin} zoomedin={zoomedin} text={text}></Summary>
             </div>
           </Html>}
