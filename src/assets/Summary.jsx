@@ -24,11 +24,11 @@ export function Summary({ animateCamera, cameraBusy, camera, positionofxz, setZo
                 background: 'linear-gradient(to bottom, #0a2e2e 0%, #051414 100%)',
                 color: '#76ff7a',
                 pointerEvents: zoomedin ? "auto" : "none",
-                border: "5px solid red"
+
             }}
         >
             {/* Header - Fixed sizes, no md: */}
-            <header className="relative z-20 mb-8">
+            <header className="relative z-20 mb-8 self-start w-full">
                 <h1
                     className="text-5xl font-black uppercase"
                     style={{

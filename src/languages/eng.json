@@ -19,6 +19,10 @@
     "downloadResume": "Download Resume",
     "warningText": "This website works best on desktop / laptops. Some interaction may not be display correctly on mobile devices.",
     "warningButton": "I understand and wish to proceed",
+    "tutorialTv": "Click the TV to view profile.\nScroll to navigate sections.",
+    "tutorialVending": "Click the vending machine\nto explore my work.",
+    "tutorialLaptop": "Click the laptop to view\nprofessional certifications.",
+    "tutorialPhone": "Click the phone to\nestablish contact.",
     "projectsData": [
         {
             "title": "Pollen Mapping System",

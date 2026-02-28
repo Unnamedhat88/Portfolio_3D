@@ -10,6 +10,7 @@ import * as THREE from 'three'
 import { Contact } from './assets/Contact'
 import gsap from 'gsap'
 import { Toolbar } from './assets/Toolbar'
+import { Language } from './assets/Language'
 import { Warning } from './assets/Warning'
 import en from './languages/eng.json';
 import jp from './languages/jpn.json';
@@ -194,8 +195,30 @@ function App() {
 
 
     <div className="relative" >
+      <Language lang={lang} setLang={setLang} />
       {!zoomedin && <Toolbar viewportHeight={viewportHeight} setActiveDiv={setActiveDiv} scrollprogress={scrollprogress} activeDiv={activeDiv} zoomedin={zoomedin} setZoomedin={setZoomedin}></Toolbar>}
       {warning && <Warning setWarning={setWarning} text={text}></Warning>}
+
+      <div className="fixed z-50 bottom-12 left-0 right-0 w-full flex justify-center pointer-events-none">
+        <div className="relative w-full max-w-4xl px-4 text-center">
+          <div style={{ opacity: (activeDiv == 0 && !tutorial[0]) ? 1 : 0, whiteSpace: 'pre-line' }}
+            className="absolute left-0 right-0 bottom-0 transition-opacity duration-700 font-bold text-4xl text-white drop-shadow-[0_0_12px_#B3005E]">
+            {text.tutorialTv}
+          </div>
+          <div style={{ opacity: (activeDiv == 1 && !tutorial[1]) ? 1 : 0, whiteSpace: 'pre-line' }}
+            className="absolute left-0 right-0 bottom-0 transition-opacity duration-700 font-bold text-4xl text-white drop-shadow-[0_0_12px_#B3005E]">
+            {text.tutorialVending}
+          </div>
+          <div style={{ opacity: (activeDiv == 2 && !tutorial[2]) ? 1 : 0, whiteSpace: 'pre-line' }}
+            className="absolute left-0 right-0 bottom-0 transition-opacity duration-700 font-bold text-4xl text-white drop-shadow-[0_0_12px_#B3005E]">
+            {text.tutorialLaptop}
+          </div>
+          <div style={{ opacity: (activeDiv == 3 && !tutorial[3]) ? 1 : 0, whiteSpace: 'pre-line' }}
+            className="absolute left-0 right-0 bottom-0 transition-opacity duration-700 font-bold text-4xl text-white drop-shadow-[0_0_12px_#B3005E]">
+            {text.tutorialPhone}
+          </div>
+        </div>
+      </div>
 
 
 
