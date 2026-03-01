@@ -135,13 +135,16 @@ export default function Object({ positionofxz, setpositionofxz, cameraBusy, focu
           vertexShader: VertexTutorial,
           fragmentShader: FragmentTutorial,
           uniforms: {
-            MAX_OPACITY: { value: 0.3 },
+            uOpacity: { value: 0.5 },
             uFogColor: { value: new THREE.Color("#EBA2CC") },
             uFogDensity: { value: 0.06 },
             uTime: { value: 0.0 },
           },
           transparent: true,
+          // side: child.name.toLowerCase().includes("hand") ? THREE.FrontSide : THREE.BackSide,
+
         });
+
 
         const name = child.name.toLowerCase();
         if (name.includes("tv")) tutorialMeshes.current.tv = child;
@@ -176,7 +179,7 @@ export default function Object({ positionofxz, setpositionofxz, cameraBusy, focu
     if (laptop.length > 0) {
       laptop.forEach((mesh) => {
         mesh.visible = tutorial[2] === 0;
-        mesh.material.uniforms.uTime.value += delta;
+        mesh.material.uniforms.uTime.value += delta / 2;
       });
     }
     if (phone) {

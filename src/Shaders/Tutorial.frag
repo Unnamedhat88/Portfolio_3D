@@ -4,7 +4,7 @@ precision mediump float;
 #endif
 
 uniform float uTime;
-uniform float MAX_OPACITY;
+uniform float uOpacity;
 varying vec3 vViewPos;
 uniform vec3 uFogColor;
 uniform float uFogDensity;
@@ -25,7 +25,7 @@ void main() {
     fogFactor = clamp(fogFactor, 0.0, 1.0);
     color = mix(color, uFogColor, fogFactor);
 
-    gl_FragColor = vec4(color, MAX_OPACITY+0.3*sin(uTime*2.5));
+    gl_FragColor = vec4(color,uOpacity+0.4*sin(uTime*3.0));
 }
 `;
 

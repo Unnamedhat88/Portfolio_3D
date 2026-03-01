@@ -1,17 +1,17 @@
 {
-    "greeting": "TBA",
-    "summary": "TBA",
-    "techStackLabel": "TBA",
-    "otherSkillsLabel": "TBA",
-    "techStack": "TBA",
-    "otherSkills": "TBA",
+    "greeting": "こんにちは、ブランドン プラタマ クィーです",
+    "summary": "私はシステムデザイナーとパフォーマンスエンジニアで、低レベル最適化とスケーラブルなアーキテクチャに注力しています。高性能3D環境、フルスタックシステム、およびNLPパイプラインの設計を専門としています。英語、日本語、インドネシア語のトリリンガルとして、バックエンドロジックと没入型ユーザー体験を繋ぐ効率的なインターフェースを構築しています。",
+    "techStackLabel": "TECH_STACK : ",
+    "otherSkillsLabel": "EXTERNAL_TOOLS : ",
+    "techStack": "Python, Java, Html, Css, Javascript, React, Three.js, React Three Fiber, Tailwind, GLSL, Typescript",
+    "otherSkills": "Figma, Blender",
     "projects": "TBA",
     "projectDesc": "TBA",
     "certificate": "TBA",
     "certificateDesc": "TBA",
     "contact": "TBA",
     "contactMe": "TBA",
-    "back": "TBA",
+    "back": "終了",
     "goBack": "TBA",
     "workInProgress": "TBA",
     "navigateToWebsite": "TBA",
@@ -19,10 +19,10 @@
     "downloadResume": "TBA",
     "warningText": "TBA",
     "warningButton": "TBA",
-    "tutorialTv": "TBA",
-    "tutorialVending": "TBA",
-    "tutorialLaptop": "TBA",
-    "tutorialPhone": "TBA",
+    "tutorialTv": "プロファイを表示するにテレビをクリックして、\nスクロールしてセクションを移動します。",
+    "tutorialVending": "プロジェクトを見るために\n自動販売機をクリックして下さい。",
+    "tutorialLaptop": "資格を見るために\nラップトップをクリックして下さい。",
+    "tutorialPhone": "連絡するために\n電話をクリックして下さい。",
     "projectsData": [
         {
             "title": "TBA",
@@ -43,11 +43,11 @@
     ],
     "certsData": [
         {
-            "title": "TBA",
+            "title": "AWS認定クラウドプラクティショナー",
             "desc": "TBA"
         },
         {
-            "title": "TBA",
+            "title": "AWS認定AIプラクティショナー",
             "desc": "TBA"
         }
     ]
